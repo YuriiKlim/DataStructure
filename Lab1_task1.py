@@ -69,9 +69,15 @@ class LinkedList:
 
 def menu():
     ll = LinkedList()
-    numbers = input("Введіть набір чисел, розділених пробілом: ").split()
-    for num in numbers:
-        ll.append(int(num))
+    while True:
+        try:
+            numbers = input("Введіть набір чисел, розділених пробілом: ").split()
+            for num in numbers:
+                ll.append(int(num))
+            break
+        except:
+            print("Введіть лише числа")
+
 
     while True:
         print("\n1. Додати елемент до списку.")
@@ -84,22 +90,44 @@ def menu():
         choice = input("Введіть ваш вибір: ")
 
         if choice == "1":
-            data = int(input("Введіть елемент для додавання: "))
-            ll.append(data)
+            while True:
+                try:
+                    data = int(input("Введіть елемент для додавання: "))
+                    ll.append(data)
+                    break
+                except:
+                    print("Введіть лише числа")
         elif choice == "2":
-            data = int(input("Введіть елемент для видалення: "))
-            if not ll.remove(data):
-                print("Елемент не знайдено.")
+            while True:
+                try:
+                    data = int(input("Введіть елемент для видалення: "))
+                    if not ll.remove(data):
+                        print("Елемент не знайдено.")
+                    break
+                except:
+                    print("Введіть лише числа")
         elif choice == "3":
             ll.show()
         elif choice == "4":
-            data = int(input("Введіть елемент для перевірки: "))
-            print(f"Так, {data} міститься у списку" if ll.contains(data) else f"Ні, {data} не міститься у списку")
+            while True:
+                try:
+                    data = int(input("Введіть елемент для перевірки: "))
+                    print(
+                        f"Так, {data} міститься у списку" if ll.contains(data) else f"Ні, {data} не міститься у списку")
+                    break
+                except:
+                    print("Введіть лише числа")
+
         elif choice == "5":
-            old_data = int(input("Введіть елемент для заміни: "))
-            new_data = int(input("Введіть новий елемент: "))
-            if not ll.replace(old_data, new_data):
-                print("Елемент для заміни не знайдено.")
+            while True:
+                try:
+                    old_data = int(input("Введіть елемент для заміни: "))
+                    new_data = int(input("Введіть новий елемент: "))
+                    if not ll.replace(old_data, new_data):
+                        print("Елемент для заміни не знайдено.")
+                    break
+                except:
+                    print("Введіть лише числа")
         elif choice == "6":
             break
         else:
