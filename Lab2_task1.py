@@ -26,9 +26,11 @@ class Stack:
 
 def main():
     history = Stack()
+    pop_history = Stack()
     while True:
         print("\n1. Відвідати сторінку")
-        print("2. Повернутися")
+        print("2. Назад")
+        print("3. Вперед")
         print("3. Поточна сторінка")
         print("4. Вихід")
 
@@ -41,8 +43,18 @@ def main():
 
         elif choice == "2":
             if not history.is_empty():
-                history.pop()
-                print("Повернення на попередню сторінку...")
+                last_page = history.pop()
+                pop_history.push(last_page)
+                current_page = history.peek()
+                print(f"Повернення на: {current_page}")
+            else:
+                print("Історія відвідувань пуста.")
+
+        elif choice == "3":
+            if not history.is_empty():
+                next_page = pop_history.pop()
+                history.push(next_page)
+                print(f"Повернення на попередню сторінку: {next_page}")
             else:
                 print("Історія відвідувань пуста.")
 
