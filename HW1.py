@@ -66,12 +66,12 @@ class DoublyLinkedList:
         if reverse:
             current = self.tail
             while current:
-                print(current.data, end=" ")
+                print(current.data, end="->")
                 current = current.prev
         else:
             current = self.head
             while current:
-                print(current.data, end=" ")
+                print(current.data, end="<-")
                 current = current.next
         print()
 
