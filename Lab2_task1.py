@@ -51,7 +51,7 @@ def main():
                 print("Історія відвідувань пуста.")
 
         elif choice == "3":
-            if not history.is_empty():
+            if not pop_history.is_empty():
                 next_page = pop_history.pop()
                 history.push(next_page)
                 print(f"Повернення на попередню сторінку: {next_page}")
