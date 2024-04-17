@@ -45,10 +45,11 @@ class Dock:
         return average_wait
 
     def optimal_boat_interval(self, max_people):
+        print(f"місткість катера: {self.calculate_boat_capacity()}, місткість причалу: {max_people}")
         self.max_people = max_people
         optimal_intervals = {}
         for period, interval in self.passenger_timing.items():
-            time_to_fill_boat = (max(self.max_people, self.calculate_boat_capacity()) * interval)
+            time_to_fill_boat = (min(self.max_people, self.calculate_boat_capacity()) * interval)
             optimal_intervals[period] = time_to_fill_boat
         print(f"Оптимальні часи пррибуття{optimal_intervals}")
         return optimal_intervals
